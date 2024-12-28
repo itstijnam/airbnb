@@ -1,0 +1,81 @@
+<%- include('../partials/head')%>
+</head>
+<style>
+    *{
+        margin: 0;
+        top: 0;
+    }
+    body{
+        height: 100vh;
+        width: 100vw; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    form{
+        width: 400px;
+        height: 500px;
+        box-shadow: 2px 2px 10px black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 10% ;
+        row-gap: 0.2rem;
+    }
+    button{
+        width: 42%;
+        color: white;
+        background-color: orangered;
+        border: 8px;
+        padding: 4px 10px;
+    }
+    .registerLabel{
+        box-shadow: 1px 1px 8px red;
+        width: 400px;
+        height: 500px;
+        background-color: #222222;
+        
+    }
+    h1{
+        position: relative;
+        padding: 0px 30px;
+        top: 0px;
+        color: white;
+        background: linear-gradient(45deg, rgba(255, 0, 0, 0.029), rgba(255, 0, 0, 0.248), rgba(255, 0, 0, 0.352), rgba(255, 0, 0, 0.478));
+    }
+    .imageGrnd{
+        /* border: 2px solid red; */
+        position: relative;
+        width: 95%;
+        height: 50%;
+        top: 23%;
+        left: 2%;
+        overflow: hidden;
+        object-fit: cover;
+        box-shadow: 2px 2px 10px red;
+    }
+    .imageGrnd img{
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<body>
+
+    <div class="registerLabel">
+        <h1><%= editing? 'Update' : 'Register' %> your home </h1>
+        <div class="imageGrnd">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/023/309/311/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg" alt="alt">
+        </div>
+    </div>
+    <form action="/host/<%= editing? 'edit-home' : 'add-home'%>" method="post">
+        <input type="hidden" name="_id" value="<%= editing? homeFound._id : ''%>">
+        <input type="text" name="houseName" placeholder="Enter House Name" value="<%= editing? homeFound.houseName : ''%>"/>
+        <input type="text" name="price" placeholder="Enter price per night" value="<%= editing? homeFound.price : ''%>" />
+        <input type="text" name="location" placeholder="Enter location" value="<%= editing? homeFound.location : ''%>" />
+        <input type="text" name="rating" placeholder="Enter Rating" value="<%= editing? homeFound.rating : ''%>" />
+        <button type="submit"><%= editing? 'Update' : 'Submit'%></button>
+    </form>
+</body>
+</html>

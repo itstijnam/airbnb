@@ -1,0 +1,69 @@
+<%- include('../partials/head') %>
+</head>
+<style>
+    body{
+        overflow: hidden;
+    }
+    ul{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: row;
+        width: 96vw;
+        height: 500px;
+        position: absolute;
+        /* border: 2px solid red; */
+        row-gap: 0.6rem;
+        column-gap: 0.4rem;
+        padding: 4px 10px;
+        box-shadow: 2px 2px 6px black;
+        overflow-y: scroll;
+        margin-left: 12px;
+    }
+    li{
+        list-style: none;
+        padding: 4px 10px;
+        color: white;
+    }
+    .card{
+        width: 18%;
+        height: 26%;
+        box-shadow: 2px 2px 10px black;
+        overflow: hidden;
+        position: relative;
+        /* border: 2px solid red; */
+    }
+    .card img{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: -111;
+        transform: translateY(-96.2%);
+    }
+    button{
+        background-color: #108fde;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        margin-left: 12px;
+    }
+</style>
+<body> 
+    <%- include('../partials/nav') %>
+    <h1>Welcome to airbnb</h1>
+    <a href="/host/add-home">Add Home</a><br>
+    <main>
+        <ul>
+            <% registeredHomes.forEach((home)=>{%>
+                <div class="card">
+                    <li>House name: <%= home.houseName%></li>
+                    <li>Price: <%= home.price%></li>
+                    <li>Location: <%= home.loacation%></li>
+                    <li>Rating: <%= home.rating%></li>
+                    <button>Book</button>
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/023/307/449/small_2x/ai-generative-exterior-of-modern-luxury-house-with-garden-and-beautiful-sky-photo.jpg" alt="houseImage">
+                </div>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>

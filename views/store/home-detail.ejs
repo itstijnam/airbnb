@@ -1,0 +1,103 @@
+<%- include('../partials/head') %>
+</head>
+<style>
+    body{
+        overflow: hidden;
+    }
+    .detailContainer{
+        width: 98vw;
+        height: 500px;
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: space-between;
+        background-color: #3333;
+        border-radius: 4px;
+    }
+    .detailLeft{
+        /* border: 2px solid green; */
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+    }
+    .detailRight{
+        /* border: 2px solid green; */
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .imageSection{
+        height: 60%;
+        background-color: #33333323;
+        border-radius: 4px;
+        position: relative;
+        overflow: hidden;
+        object-fit: contain;
+    }
+    .imageSection img{
+        position: relative;
+        /* height: 100%; */
+        width: 100%;
+    }
+    .imageCmntSection{
+        height: 40%;
+    }
+    .houseCard{
+        border: 1px solid black;
+        width: 70%;
+        height: 40%;
+        border-radius: 4px;
+    }
+    li {
+        list-style: none;
+    }
+    .imageCmntSection{
+        padding: 10px;
+    }
+    .imageCmntSection button{
+        background-color: rgba(255, 68, 0, 0.829);
+        padding: 3px 10px;
+        text-decoration: none;
+        color: whitesmoke;
+        margin-top: 10px;
+        border-radius: 3px;
+        border: orangered;
+        cursor: pointer;
+    }
+    .imageCmntSection button:hover{
+        background-color: orangered;
+        transition: 0s all;
+    }
+
+</style>
+<body> 
+    <%- include('../partials/nav') %>
+    <header>
+        <h2>You are in home detail page</h2>
+    </header>
+    <main>
+        <div class="detailContainer">
+            <div class="detailLeft">
+                <div class="imageSection">
+                    <img src="https://thumbs.dreamstime.com/b/modern-house-interior-exterior-design-46517595.jpg" alt="">
+                </div>
+                <div class="imageCmntSection">
+                    <%- include('../partials/favourites')%>
+                </div>
+            </div>
+            <div class="detailRight">
+                <div class="houseCard">
+                    <ul>
+                            <li>House Name: <%= home.houseName%> </li>
+                            <li>Price: <%= home.price%> </li>
+                            <li>Location: <%= home.location%></li>
+                            <li>Rating: <%= home.rating%></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
